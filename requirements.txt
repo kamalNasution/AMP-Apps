@@ -1,0 +1,8 @@
+streamlit>=1.30
+pandas>=1.5
+numpy>=1.23
+rdkit-pypi>=2022.9.5
+pillow>=9.2
+joblib>=1.2
+altair>=4.2
+openpyxl>=3.0
