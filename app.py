@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from rdkit import Chem
-from rdkit.Chem import Descriptors, Draw, AllChem, DataStructs
+from rdkit.Chem import Descriptors, AllChem, DataStructs
 from rdkit.Chem.Fingerprints import FingerprintMols
 from rdkit.Chem import MACCSkeys
 import pickle
@@ -296,13 +296,8 @@ def show_similarity_tab():
                         
                         for _, row in top_results.iterrows():
                             with st.container():
-                                col1, col2 = st.columns([1, 3])
+                                col1, col2 = st.columns([3, 1])
                                 with col1:
-                                    mol = Chem.MolFromSmiles(row['Smiles'])
-                                    if mol:
-                                        img = Draw.MolToImage(mol, size=(500, 500))
-                                        st.image(img, use_container_width=True)
-                                with col2:
                                     st.markdown(f"""
                                     **{row['Metabolite_name']}**  
                                     *Herbal medicine: {row['Herbal Medicine']}*
@@ -376,10 +371,10 @@ def show_ml_tab():
                     return
                 
                 try:
-                    # Molecule visualization
-                    st.markdown("### 🧬 Molecular Structure")
-                    img = Draw.MolToImage(mol, size=(500, 500))
-                    st.image(img, caption=f"Structure: {smiles_input}")
+                    # # Molecule visualization
+                    # st.markdown("### 🧬 Molecular Structure")
+                    # img = Draw.MolToImage(mol, size=(500, 500))
+                    # st.image(img, caption=f"Structure: {smiles_input}")
                     
                     # Prediction results
                     prediction = model.predict(input_df)
